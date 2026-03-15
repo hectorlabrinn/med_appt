@@ -1,0 +1,25 @@
+body{
+margin:0;
+font-family:Inter, Arial, sans-serif;
+background:#F7F9FC;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 80px;
+background:#2A7BE4;
+color:white;
+}
+
+.menu a{
+margin-left:20px;
+color:white;
+text-decoration:none;
+font-size:16px;
+}
+
+.menu a:hover{
+text-decoration:underline;
+}
