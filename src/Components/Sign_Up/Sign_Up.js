@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Sign_Up.css";
+import { API_URL } from "../../config";
 
 function Sign_Up() {
 
@@ -8,15 +9,51 @@ function Sign_Up() {
   const [phone,setPhone] = useState("");
   const [password,setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log("Submit pressed");
 
     if(!name || !email || !phone || !password){
       alert("Please fill all fields");
       return;
     }
 
-    alert("Sign up successful");
+    try{
+
+        const response = await fetch("/api/auth/register",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          name:name,
+          email:email,
+          phone:phone,
+          password:password
+        })
+      });
+
+      const json = await response.json();
+
+      if(response.ok && json.authtoken){
+
+        sessionStorage.setItem("auth-token",json.authtoken);
+        sessionStorage.setItem("email",email);
+        sessionStorage.setItem("name",name);
+        sessionStorage.setItem("phone",phone);
+
+        alert("Registration successful");
+
+      }else{
+        alert(json.error || "Registration failed");
+      }
+
+    }catch(error){
+      console.error(error);
+      alert("Server error");
+    }
+
   };
 
   return (

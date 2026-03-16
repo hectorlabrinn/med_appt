@@ -3,6 +3,18 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
+
+  const authToken = sessionStorage.getItem("auth-token");
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("auth-token");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("phone");
+
+    window.location.reload();
+  };
+
   return (
 
     <nav className="navbar">
@@ -13,9 +25,16 @@ function Navbar() {
 
         <Link to="/">Home</Link>
 
-        <Link to="/signup">Sign Up</Link>
-
-        <Link to="/login">Login</Link>
+        {!authToken ? (
+          <>
+            <Link to="/signup">Sign Up</Link>
+            <Link to="/login">Login</Link>
+          </>
+        ) : (
+          <button onClick={handleLogout}>
+            Logout
+          </button>
+        )}
 
       </div>
 
