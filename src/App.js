@@ -1,3 +1,4 @@
+import FindDoctorSearch from "./Components/FindDoctorSearch/FindDoctorSearch";
 import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
@@ -12,6 +13,8 @@ function App() {
       <Navbar />
 
       <Routes>
+
+        <Route path="/search" element={<FindDoctorSearch />} />
 
         <Route path="/instant-consultation" element={<InstantConsultation />} />
 
