@@ -1,3 +1,4 @@
+import DoctorCard from "./Components/DoctorCard/DoctorCard";
 import FindDoctorSearch from "./Components/FindDoctorSearch/FindDoctorSearch";
 import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,6 +12,19 @@ function App() {
     <BrowserRouter>
 
       <Navbar />
+      <DoctorCard
+  name="Dr. Juan Pérez"
+  speciality="Cardiologist"
+  experience={10}
+  ratings="⭐⭐⭐⭐"
+/>
+
+<DoctorCard
+  name="Dr. Ana López"
+  speciality="Dermatologist"
+  experience={8}
+  ratings="⭐⭐⭐⭐⭐"
+/>
 
       <Routes>
 
