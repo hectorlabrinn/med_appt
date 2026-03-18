@@ -1,186 +1,252 @@
+
 * {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    box-sizing: border-box;
-}
-.hero-section {
-    height: 100vh;
-    padding-top: 15rem;
-    background-color: transparent;
-    z-index: -1;
-}
-.hero-section .flex-hero {
-    flex-direction: column;
-    gap: 30px;
-    text-align:center;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
-.hero-section .flex-hero h1 {
-    font-size: 65px;
-    font-weight: 900;
+body {
+  background-color: #f7f9fc;
 }
+
+
+.container {
+  max-width: 1200px;
+  margin: 10px auto 0 auto;
+  padding: 10px 20px;
+}
+
+
+.hero-section {
+  padding-top: 2rem;   
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.hero-section .flex-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 8px; 
+}
+
 .text-gradient {
-    background: linear-gradient(45deg,#2190FF 2.34%,#b673f8 100.78%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: linear-gradient(45deg, #2190FF 2.34%, #b673f8 100.78%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.hero-section h4 {
-    font-size: 22px;
-    font-weight: 300;
-    text-align: center;
-    padding: 12px 14rem;
-    color:#969BA5;
+
+.hero-section h4,
+.hero-section p {
+  font-size: 18px;
+  font-weight: 300;
+  color: #969BA5;
+  margin-bottom: 15px; 
 }
+
+
+.search-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 30px 0;
+}
+
+.search-section input {
+  width: 500px;
+  max-width: 90%;
+  padding: 14px 18px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.search-section input:focus {
+  border-color: #2190FF;
+  box-shadow: 0 0 0 3px rgba(33, 144, 255, 0.1);
+}
+
 
 .hero-section .button {
-    padding: 0.7rem 2rem;
-    border-radius: 25px;
-    background-color: #2190FF;
-    color: #fff;
-    border: 1px solid transparent;
-    width: 15%;
-    margin-top:15px;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  background-color: #2190FF;
+  color: #fff;
+  border: none;
+  width: 200px;
+  margin: 15px auto 0;
+  transition: 0.3s;
 }
 
-.hero-section div:nth-child(2) {
-    margin-top: 4rem;
-}
-
-.hero-section .image {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0px;
+.hero-section .button:hover {
+  transform: scale(0.97);
+  background-color: #1976d2;
 }
 
 
-
-
-ul {
-    list-style: none;
+.doctors-section {
+  margin-top: 40px; 
+  text-align: center;
 }
 
-a {
-    text-decoration: none;
-    color: #333;
+.doctors-section h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
 }
 
-h1,
-h2 {
-    line-height: 1.3;
-    margin: 15px 0;
+
+.doctors-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  justify-items: center;
 }
 
+
+.doctor-card-container {
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.doctor-card-container:hover {
+  transform: translateY(-5px);
+}
+
+
+.doctor-card-detail-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.doctor-card-detail-speciality {
+  color: #666;
+  margin: 5px 0;
+}
+
+.doctor-card-detail-experience {
+  color: #999;
+  font-size: 14px;
+}
+
+.doctor-card-detail-consultationfees {
+  margin-top: 10px;
+  font-weight: 500;
+}
 
 
 button {
-    transition: all 0.5s ease-in-out;
-    font-size: 1em;
-    padding: 1em;
-    width: 100%;
-    border-radius: 5px;
-    margin-top: 10px;
+  width: 100%;
+  background-color: #2190FF;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #1976d2;
 }
 
 
-.button:hover {
-    transform: scale(0.98);
+ul {
+  list-style: none;
 }
 
-
-@media screen and (max-width:980px) {
-    .hero-section h1 {
-        text-align: center;
-    }
-    .hero-section {
-        padding-top: 12rem;
-    }
-    .hero-section h4 {
-        font-size: 21px;
-        text-align: center;
-        padding: 0px 4rem;
-    }
-    .image {
-        width: 500px;
-    }
-    .hero-section .button{
-        margin-top:15px;
-        width: 45%;
-    }
-    
+a {
+  text-decoration: none;
+  color: #333;
 }
-
-@media screen and (max-width:400px) {
-    .hero-section h1 {
-        font-size: 35px;
-    }
-
-    .hero-section {
-        padding-top: 10rem;
-    }
-    .hero-section h4 {
-        font-size: 16px;
-        padding: 0px 2rem;
-    }
-
-}
-
-
 
 button,
 a,
 li {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-/* Blob */
 
-
-/* Blobs */
 .flex-hero .blob-cont {
-    justify-content: center;
-    align-items: center;
-    position: static;
-    margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-
 
 .blob {
-    border-radius: 100px;
-    filter: blur(60px);
+  border-radius: 100px;
+  filter: blur(60px);
 }
 
 .blue {
-    background-color: #2937a392;
-    position: absolute;
-    top:0;
-    left: 0;
-    right: 55%;
-    bottom: 25%;
-    margin: auto;
-    height: 150px;
-    width: 200px;
-    animation: blobani 8s infinite ease;
+  background-color: #2937a392;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 55%;
+  bottom: 25%;
+  margin: auto;
+  height: 150px;
+  width: 200px;
+  animation: blobani 8s infinite ease;
 }
+
 .blue1 {
-    background-color: #2937a392;
-    position: absolute;
-    top:0;
-    left: 0;
-    right: -55%;
-    bottom: -25%;
-    margin: auto;
-    height: 150px;
-    width: 200px;
-    animation: blobani 8s infinite ease;
+  background-color: #2937a392;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -55%;
+  bottom: -25%;
+  margin: auto;
+  height: 150px;
+  width: 200px;
+  animation: blobani 8s infinite ease;
 }
-  
-  
-  @keyframes blobani {
-    0% {top: 0; left: 0; transform: scale(1);}
-    30% {top: 0; left: 0; transform: scale(1.2);}
-    60% {top: 0; left: 0; transform: scale(1.3);}
-    100% {top: 0; left: 0; transform: scale(1);}
+
+@keyframes blobani {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.2); }
+  60% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+
+@media screen and (max-width: 980px) {
+  .hero-section {
+    padding-top: 5rem;
   }
-  
+
+  .hero-section h1 {
+    font-size: 38px;
+  }
+
+  .hero-section h4 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hero-section h1 {
+    font-size: 28px;
+  }
+
+  .hero-section h4 {
+    font-size: 14px;
+  }
+}
