@@ -13,9 +13,12 @@ function AppointmentForm({ onSubmit }) {
       return;
     }
 
-    // 👇 esto conecta con DoctorCard
+    // ✅ enviar datos al padre
     if (onSubmit) {
-      onSubmit();
+      onSubmit({
+        name,
+        phone
+      });
     }
 
     alert("Appointment Booked!");

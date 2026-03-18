@@ -6,19 +6,21 @@ function DoctorCard({ name, speciality, experience, ratings }) {
 
   const [showForm, setShowForm] = useState(false);
   const [isBooked, setIsBooked] = useState(false);
+  const [appointment, setAppointment] = useState(null); // 👈 NUEVO
 
   const handleBooking = () => {
     if (isBooked) {
       // Cancelar cita
       setIsBooked(false);
-      setShowForm(false);
+      setAppointment(null); // 👈 limpiar datos
     } else {
       // Mostrar formulario
       setShowForm(true);
     }
   };
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = (data) => {
+    setAppointment(data); // 👈 guardar datos
     setIsBooked(true);
     setShowForm(false);
   };
@@ -39,17 +41,23 @@ function DoctorCard({ name, speciality, experience, ratings }) {
         </div>
       </div>
 
+      {/* BOTÓN */}
       {!showForm && (
-  <button onClick={handleBooking}>
-    {isBooked ? "Cancel Appointment" : "Book Appointment"}
-  </button>
-)}
+        <button onClick={handleBooking}>
+          {isBooked ? "Cancel Appointment" : "Book Appointment"}
+        </button>
+      )}
 
-      {/* Mostrar formulario */}
+      {/* FORMULARIO */}
       {showForm && <AppointmentForm onSubmit={handleFormSubmit} />}
 
-      {/* Confirmación */}
-      {isBooked && <p>Appointment Booked!</p>}
+      {/* DATOS DE LA CITA */}
+      {isBooked && appointment && (
+        <div style={{ marginTop: "10px" }}>
+          <p><strong>Name:</strong> {appointment.name}</p>
+          <p><strong>Phone:</strong> {appointment.phone}</p>
+        </div>
+      )}
 
     </div>
   );
