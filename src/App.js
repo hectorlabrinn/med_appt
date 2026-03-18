@@ -1,3 +1,4 @@
+import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Navbar from "./Components/Navbar/Navbar";
@@ -11,6 +12,8 @@ function App() {
       <Navbar />
 
       <Routes>
+
+        <Route path="/instant-consultation" element={<InstantConsultation />} />
 
         <Route path="/" element={<Landing_Page />} />
 
