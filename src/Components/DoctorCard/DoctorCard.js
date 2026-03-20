@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AppointmentForm from "../AppointmentForm/AppointmentForm";
+import ReviewForm from "../ReviewForm/ReviewForm";
 import "./DoctorCard.css";
 
 function DoctorCard({ 
@@ -26,7 +27,7 @@ function DoctorCard({
       setShowNotification(false);
 
     } else {
-      
+      // Mostrar formulario
       setShowForm(true);
     }
   };
@@ -47,6 +48,7 @@ function DoctorCard({
   return (
     <div className="doctor-card-container">
 
+      {}
       <div className="doctor-card-details-container">
         <div className="doctor-card-details">
           <div className="doctor-card-detail-name">{name}</div>
@@ -79,6 +81,9 @@ function DoctorCard({
           <p><strong>Phone:</strong> {appointment.phone}</p>
         </div>
       )}
+
+      {}
+      <ReviewForm doctorName={name} />
 
     </div>
   );
