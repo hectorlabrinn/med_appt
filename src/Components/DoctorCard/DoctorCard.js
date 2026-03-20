@@ -2,27 +2,46 @@ import React, { useState } from "react";
 import AppointmentForm from "../AppointmentForm/AppointmentForm";
 import "./DoctorCard.css";
 
-function DoctorCard({ name, speciality, experience, ratings }) {
+function DoctorCard({ 
+  name, 
+  speciality, 
+  experience, 
+  ratings,
+  setShowNotification,
+  setNotificationMessage
+}) {
 
   const [showForm, setShowForm] = useState(false);
   const [isBooked, setIsBooked] = useState(false);
-  const [appointment, setAppointment] = useState(null); // 👈 NUEVO
+  const [appointment, setAppointment] = useState(null);
 
+  
   const handleBooking = () => {
     if (isBooked) {
-      // Cancelar cita
+      
       setIsBooked(false);
-      setAppointment(null); // 👈 limpiar datos
+      setAppointment(null);
+
+      
+      setShowNotification(false);
+
     } else {
-      // Mostrar formulario
+      
       setShowForm(true);
     }
   };
 
+  
   const handleFormSubmit = (data) => {
-    setAppointment(data); // 👈 guardar datos
+    setAppointment(data);
     setIsBooked(true);
     setShowForm(false);
+
+    
+    setNotificationMessage(
+      `Appointment booked with ${name} for ${data.name}`
+    );
+    setShowNotification(true);
   };
 
   return (
@@ -41,17 +60,19 @@ function DoctorCard({ name, speciality, experience, ratings }) {
         </div>
       </div>
 
-      {/* BOTÓN */}
+      {}
       {!showForm && (
         <button onClick={handleBooking}>
           {isBooked ? "Cancel Appointment" : "Book Appointment"}
         </button>
       )}
 
-      {/* FORMULARIO */}
-      {showForm && <AppointmentForm onSubmit={handleFormSubmit} />}
+      {}
+      {showForm && (
+        <AppointmentForm onSubmit={handleFormSubmit} />
+      )}
 
-      {/* DATOS DE LA CITA */}
+      {}
       {isBooked && appointment && (
         <div style={{ marginTop: "10px" }}>
           <p><strong>Name:</strong> {appointment.name}</p>
