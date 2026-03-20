@@ -1,27 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
 
   const authToken = sessionStorage.getItem("auth-token");
+  const userName = sessionStorage.getItem("name");
+
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleLogout = () => {
-    sessionStorage.removeItem("auth-token");
-    sessionStorage.removeItem("email");
-    sessionStorage.removeItem("name");
-    sessionStorage.removeItem("phone");
-
-    window.location.reload();
+    sessionStorage.clear();
+    window.location.href = "/login";
   };
 
   return (
-
     <nav className="navbar">
 
       <h2>StayHealthy</h2>
 
-      <div className="nav-links">
+      {/* 👇 IMPORTANTE: usar "menu" (no nav-links) */}
+      <div className="menu">
 
         <Link to="/">Home</Link>
 
@@ -31,15 +30,38 @@ function Navbar() {
             <Link to="/login">Login</Link>
           </>
         ) : (
-          <button onClick={handleLogout}>
-            Logout
-          </button>
+          <div className="dropdown">
+
+            {/* 👇 Nombre del usuario */}
+            <span onClick={() => setShowDropdown(!showDropdown)}>
+              {userName || "User"} ▼
+            </span>
+
+            {/* 👇 Dropdown */}
+            {showDropdown && (
+              <div className="dropdown-menu">
+
+                <Link to="/profile" onClick={() => setShowDropdown(false)}>
+                  Profile
+                </Link>
+
+                <Link to="/reports" onClick={() => setShowDropdown(false)}>
+                  Reports
+                </Link>
+
+                <button onClick={handleLogout}>
+                  Logout
+                </button>
+
+              </div>
+            )}
+
+          </div>
         )}
 
       </div>
 
     </nav>
-
   );
 }
 

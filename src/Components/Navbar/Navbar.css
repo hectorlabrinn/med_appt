@@ -1,25 +1,96 @@
-body{
-margin:0;
-font-family:Inter, Arial, sans-serif;
-background:#F7F9FC;
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #F7F9FC;
 }
 
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 80px;
-background:#2A7BE4;
-color:white;
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 80px;
+  background: #2A7BE4;
+  color: white;
 }
 
-.menu a{
-margin-left:20px;
-color:white;
-text-decoration:none;
-font-size:16px;
+/* LINKS */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.menu a:hover{
-text-decoration:underline;
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* MENU DESPLEGABLE */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 35px;
+  background: white;
+  border-radius: 10px;
+  padding: 10px 0;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+/* ITEMS */
+.dropdown-menu a {
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  background: #f0f4ff;
+}
+
+/* BOTÓN LOGOUT */
+.dropdown-menu button {
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  color: red;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background: #ffecec;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .menu {
+    gap: 10px;
+  }
 }

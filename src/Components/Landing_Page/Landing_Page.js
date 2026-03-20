@@ -7,18 +7,18 @@ function Landing_Page({ setShowNotification, setNotificationMessage }) {
   return (
     <div className="container">
 
-      {}
+      {/* HERO */}
       <div className="hero-section">
         <h1 className="text-gradient">Welcome to StayHealthy</h1>
         <p>Your health companion</p>
       </div>
 
-      {}
+      {/* SEARCH */}
       <div className="search-section">
         <FindDoctorSearch />
       </div>
 
-      {}
+      {/* DOCTORS */}
       <div className="doctors-section">
         <h2>Available Doctors</h2>
 
