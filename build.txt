@@ -1,0 +1,11 @@
+total 708
+-rw-r--r--   1 theia users    289 Mar 21 18:56 README.md
+drwxr-sr-x   2 theia users   4096 Mar 21 18:56 public
+-rw-r--r--   1 theia users    955 Mar 21 18:56 package.json
+drwxr-sr-x   3 theia users   4096 Mar 21 18:56 src
+drwxr-sr-x 873 theia users  36864 Mar 21 19:04 node_modules
+-rw-r--r--   1 theia users 654927 Mar 21 19:04 package-lock.json
+drwxr-sr-x   3 theia users   4096 Mar 21 19:04 build
+drwxr-sr-x   6 theia users   4096 Mar 21 19:06 server
+-rw-r--r--   1 theia users    121 Mar 21 19:25 Dockerfile
+-rw-r--r--   1 theia users      0 Mar 21 19:35 build.txt
