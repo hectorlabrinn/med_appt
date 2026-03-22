@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 
-function AppointmentFormIC({ onSubmit }) {
+function AppointmentForm({ onSubmit }) {
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name || !phone) {
+    if (!name || !phone || !date || !time) {
       alert("Please fill all fields");
       return;
     }
 
-    onSubmit({ name, phone });
+    onSubmit({ name, phone, date, time });
 
     setName("");
     setPhone("");
+    setDate("");
+    setTime("");
   };
 
   return (
@@ -36,12 +40,24 @@ function AppointmentFormIC({ onSubmit }) {
         onChange={(e) => setPhone(e.target.value)}
       />
 
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+      />
+
+      <input
+        type="time"
+        value={time}
+        onChange={(e) => setTime(e.target.value)}
+      />
+
       <button type="submit">
-        Submit
+        Book Appointment
       </button>
 
     </form>
   );
 }
 
-export default AppointmentFormIC;
+export default AppointmentForm;
