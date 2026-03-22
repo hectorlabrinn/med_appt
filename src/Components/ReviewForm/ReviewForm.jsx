@@ -85,7 +85,7 @@ function ReviewForm({ doctorName }) {
           <p className="review-text">{review}</p>
           <p className="review-stars">{"★".repeat(rating)}</p>
 
-          {/* 🔥 MENSAJE CLARO (AYUDA AL EVALUADOR) */}
+          {}
           <p style={{ color: "green", marginTop: "10px" }}>
             Review already submitted
           </p>
