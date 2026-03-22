@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import AppointmentForm from "../AppointmentForm/AppointmentForm";
+import React, { useState, useEffect } from "react";
+import AppointmentForm from "../AppointmentForm/AppointmentFormIC";
 import ReviewForm from "../ReviewForm/ReviewForm";
 import "./DoctorCard.css";
 
@@ -16,14 +16,21 @@ function DoctorCard({
   const [isBooked, setIsBooked] = useState(false);
   const [appointment, setAppointment] = useState(null);
 
+  useEffect(() => {
+    const saved = localStorage.getItem(name);
+    if (saved) {
+      setAppointment(JSON.parse(saved));
+      setIsBooked(true);
+    }
+  }, [name]);
+
   const handleBooking = () => {
     if (isBooked) {
-      // Cancelar cita
       setIsBooked(false);
       setAppointment(null);
+      localStorage.removeItem(name);
       setShowNotification(false);
     } else {
-      // Mostrar formulario
       setShowForm(true);
     }
   };
@@ -33,7 +40,8 @@ function DoctorCard({
     setIsBooked(true);
     setShowForm(false);
 
-    // 🔔 Notificación
+    localStorage.setItem(name, JSON.stringify(data));
+
     setNotificationMessage(
       `Appointment booked with ${name} for ${data.name}`
     );
@@ -43,7 +51,6 @@ function DoctorCard({
   return (
     <div className="doctor-card-container">
 
-      {/* INFO DOCTOR */}
       <div className="doctor-card-details-container">
         <div className="doctor-card-details">
           <div className="doctor-card-detail-name">{name}</div>
@@ -57,19 +64,16 @@ function DoctorCard({
         </div>
       </div>
 
-      {/* BOTÓN */}
       {!showForm && (
         <button onClick={handleBooking}>
           {isBooked ? "Cancel Appointment" : "Book Appointment"}
         </button>
       )}
 
-      {/* FORMULARIO */}
       {showForm && (
         <AppointmentForm onSubmit={handleFormSubmit} />
       )}
 
-      {/* DATOS DE CITA */}
       {isBooked && appointment && (
         <div style={{ marginTop: "10px" }}>
           <p><strong>Name:</strong> {appointment.name}</p>
@@ -77,7 +81,6 @@ function DoctorCard({
         </div>
       )}
 
-      {/* REVIEW */}
       <ReviewForm doctorName={name} />
 
     </div>
