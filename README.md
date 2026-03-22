@@ -1,15 +1,17 @@
 # StayHealthy Medical Appointment Website
 
-This project is part of the Front-End Developer Capstone.
-
 ## Description
-StayHealthy is a web platform that allows patients to:
-- Search doctors
-- Book medical appointments
-- Leave reviews
-- Manage profiles
+This is a web application that allows users to search doctors, book appointments, and manage their health activities.
 
-## Technologies
-- HTML
-- CSS
-- React
+## Setup Instructions
+
+### 1. Install dependencies
+npm install
+
+### 2. Run frontend
+npm start
+
+### 3. Run backend
+cd server
+npm install
+node index.js
