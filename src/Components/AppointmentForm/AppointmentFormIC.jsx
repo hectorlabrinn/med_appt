@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AppointmentForm({ onSubmit }) {
+function AppointmentFormIC({ onSubmit }) {
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -13,50 +13,35 @@ function AppointmentForm({ onSubmit }) {
       return;
     }
 
-    // ✅ enviar datos al padre
-    if (onSubmit) {
-      onSubmit({
-        name,
-        phone
-      });
-    }
+    onSubmit({ name, phone });
 
-    alert("Appointment Booked!");
+    setName("");
+    setPhone("");
   };
 
   return (
-    <div style={{ marginTop: "20px" }}>
+    <form onSubmit={handleSubmit}>
 
-      <h3>Book Appointment</h3>
+      <input
+        type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
 
-      <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Phone"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+      />
 
-        <input
-          type="text"
-          placeholder="Your Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+      <button type="submit">
+        Submit
+      </button>
 
-        <br /><br />
-
-        <input
-          type="text"
-          placeholder="Phone Number"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-
-        <br /><br />
-
-        <button type="submit">
-          Submit
-        </button>
-
-      </form>
-
-    </div>
+    </form>
   );
 }
 
-export default AppointmentForm;
+export default AppointmentFormIC;
